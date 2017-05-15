@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"/>
+
+    <Switch
+        android:id="@+id/face_recognition_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Face detection enabled"/>
+
+    <Spinner
+        android:id="@+id/face_size_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/face_size" />
+
+    <Switch
+        android:id="@+id/save_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save on tap enabled"/>
+
+</LinearLayout>
