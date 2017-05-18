@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -74,31 +75,31 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
                 {
                     Log.i(TAG, "OpenCV loaded successfully");
 
-                    System.loadLibrary("detection_based_tracker");
-
-                    try {
-                        // load cascade file from application resources
-                        InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
-                        File cascadeDir = getDir("cascade", Context.MODE_PRIVATE);
-                        mCascadeFile = new File(cascadeDir, "lbpcascade_frontalface.xml");
-                        FileOutputStream os = new FileOutputStream(mCascadeFile);
-
-                        byte[] buffer = new byte[4096];
-                        int bytesRead;
-                        while ((bytesRead = is.read(buffer)) != -1) {
-                            os.write(buffer, 0, bytesRead);
-                        }
-                        is.close();
-                        os.close();
-
-                        mNativeDetector = new DetectionBasedTracker(mCascadeFile.getAbsolutePath(), 0);
-
-                        cascadeDir.delete();
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Log.e(TAG, "Failed to load cascade. Exception thrown: " + e);
-                    }
+//                    System.loadLibrary("detection_based_tracker");
+//
+//                    try {
+//                        // load cascade file from application resources
+//                        InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
+//                        File cascadeDir = getDir("cascade", Context.MODE_PRIVATE);
+//                        mCascadeFile = new File(cascadeDir, "lbpcascade_frontalface.xml");
+//                        FileOutputStream os = new FileOutputStream(mCascadeFile);
+//
+//                        byte[] buffer = new byte[4096];
+//                        int bytesRead;
+//                        while ((bytesRead = is.read(buffer)) != -1) {
+//                            os.write(buffer, 0, bytesRead);
+//                        }
+//                        is.close();
+//                        os.close();
+//
+//                        mNativeDetector = new DetectionBasedTracker(mCascadeFile.getAbsolutePath(), 0);
+//
+//                        cascadeDir.delete();
+//
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                        Log.e(TAG, "Failed to load cascade. Exception thrown: " + e);
+//                    }
 
                     mOpenCvCameraView.enableView();
                     mOpenCvCameraView.setOnTouchListener(CameraActivity.this);
@@ -248,24 +249,24 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
             mZoomWindow.release();
         }
 
-        if(mAppPreferences.isFaceRecognitionEnabled()){
-            if (mAbsoluteFaceSize == 0) {
-                int height = mGray.rows();
-                if (Math.round(height * mRelativeFaceSize) > 0) {
-                    mAbsoluteFaceSize = Math.round(height * mRelativeFaceSize);
-                }
-                mNativeDetector.setMinFaceSize(mAbsoluteFaceSize);
-            }
-
-            MatOfRect faces = new MatOfRect();
-
-            if (mNativeDetector != null)
-                mNativeDetector.detect(mGray, faces);
-
-            Rect[] facesArray = faces.toArray();
-            for (int i = 0; i < facesArray.length; i++)
-                Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
-        }
+//        if(mAppPreferences.isFaceRecognitionEnabled()){
+//            if (mAbsoluteFaceSize == 0) {
+//                int height = mGray.rows();
+//                if (Math.round(height * mRelativeFaceSize) > 0) {
+//                    mAbsoluteFaceSize = Math.round(height * mRelativeFaceSize);
+//                }
+//                mNativeDetector.setMinFaceSize(mAbsoluteFaceSize);
+//            }
+//
+//            MatOfRect faces = new MatOfRect();
+//
+//            if (mNativeDetector != null)
+//                mNativeDetector.detect(mGray, faces);
+//
+//            Rect[] facesArray = faces.toArray();
+//            for (int i = 0; i < facesArray.length; i++)
+//                Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
+//        }
         return mRgba; // This function must return
     }
 

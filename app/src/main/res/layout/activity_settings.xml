@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
@@ -9,21 +10,99 @@
         style="@style/Toolbar"/>
 
     <Switch
+        android:id="@+id/save_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="Save on tap enabled" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Photo timeout"
+        android:textColor="@android:color/black" />
+
+    <Spinner
+        android:id="@+id/timeout_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/timeout"
+        android:textAlignment="textEnd"
+        android:layout_gravity="end"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Threshold"
+        android:textColor="@android:color/black" />
+
+    <SeekBar
+        android:id="@+id/threshold_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        />
+
+    <Switch
         android:id="@+id/face_recognition_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Face detection enabled"/>
+        android:paddingLeft="5dp"
+        android:text="Face detection enabled" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Face percentage"
+        android:textColor="@android:color/black" />
 
     <Spinner
         android:id="@+id/face_size_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/face_size" />
+        android:entries="@array/face_size"
+        android:textAlignment="textEnd"
+        android:layout_gravity="end"/>
 
-    <Switch
-        android:id="@+id/save_switch"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save on tap enabled"/>
+        android:padding="5dp"
+        android:text="Resolution"
+        android:textColor="@android:color/black" />
+
+    <Spinner
+        android:id="@+id/resolution_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/resolution"
+        android:textAlignment="textEnd"
+        android:layout_gravity="end"/>
+
+    <Switch
+        android:id="@+id/contours_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="Show contours" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Effect"
+        android:textColor="@android:color/black" />
+
+    <Spinner
+        android:id="@+id/effects_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:entries="@array/effect"
+        android:textAlignment="textEnd" />
 
 </LinearLayout>

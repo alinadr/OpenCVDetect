@@ -7,4 +7,25 @@
         <item>30</item>
         <item>20</item>
     </string-array>
+
+    <string-array name="timeout">
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="resolution">
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="effect">
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+    </string-array>
 </resources>
