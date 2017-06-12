@@ -12,10 +12,6 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by Leo on 11.05.2017.
- */
-
 @Module
 public class AppModule {
 

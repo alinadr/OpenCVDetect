@@ -1,8 +1,5 @@
 package com.example.opencvdetectprototype.data;
 
-/**
- * Created by Leo on 11.05.2017.
- */
 
 public interface AppPreferences {
 
